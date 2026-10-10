@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 using namespace std;
 
 class Date {
@@ -85,9 +86,7 @@ public:
     }
     // difference between dates (absolute days)
     long long operator-(const Date& other) const {
-        long long diff = toOrdinal() - other.toOrdinal();
-        if (diff < 0) diff = -diff;
-        return diff;
+        return llabs(toOrdinal() - other.toOrdinal());
     }
     bool operator<(const Date& other) const {
         return toOrdinal() < other.toOrdinal();
