@@ -86,7 +86,8 @@ public:
     }
     // difference between dates (absolute days)
     long long operator-(const Date& other) const {
-        return llabs(toOrdinal() - other.toOrdinal());
+        long long diff = toOrdinal() - other.toOrdinal();
+        return diff >= 0 ? diff : -diff;
     }
     bool operator<(const Date& other) const {
         return toOrdinal() < other.toOrdinal();
