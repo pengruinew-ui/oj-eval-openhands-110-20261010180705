@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstdlib>
 using namespace std;
 
 class Date {
@@ -84,8 +85,8 @@ public:
     }
     // difference between dates (absolute days)
     long long operator-(const Date& other) const {
-        long long diff = llabs(toOrdinal() - other.toOrdinal());
-        return diff;
+        long long diff = toOrdinal() - other.toOrdinal();
+        return diff >= 0 ? diff : -diff;
     }
     bool operator<(const Date& other) const {
         return toOrdinal() < other.toOrdinal();
